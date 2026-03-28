@@ -109,7 +109,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentModule, setCurrentModul
          
          <div className="flex flex-col items-center gap-2 mt-2">
            <div className="w-8 h-1 bg-gradient-to-r from-transparent via-[#FF6D2A] to-transparent rounded-full opacity-50"></div>
-           <span className="text-[10px] text-[#A5A5A5] uppercase tracking-[0.2em] font-bold">Powered by Gemini</span>
+           <span className="text-[10px] text-[#A5A5A5] uppercase tracking-[0.2em] font-bold text-center">
+             Powered By Simart agencia de marketing digital
+           </span>
          </div>
       </div>
     </div>
