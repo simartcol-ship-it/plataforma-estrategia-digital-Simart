@@ -12,7 +12,7 @@ import { LoginModal } from './components/LoginModal';
 import { useAuth } from './context/AuthContext';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { Target, TrendingUp, Sparkles, Map, LogIn } from 'lucide-react';
+import { Target, TrendingUp, Sparkles, Map, LogIn, Menu } from 'lucide-react';
 
 const DashboardSummary = ({ openLogin }: { openLogin: () => void }) => {
   const { user } = useAuth();
@@ -162,6 +162,7 @@ const DashboardSummary = ({ openLogin }: { openLogin: () => void }) => {
 const MainLayout = () => {
   const [currentModule, setCurrentModule] = useState<Module>('dashboard');
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const renderModule = () => {
     switch (currentModule) {
@@ -180,10 +181,32 @@ const MainLayout = () => {
 
   return (
     <div className="flex bg-[#F8F9FA] min-h-screen font-sans text-[#1B1B1B]">
-      <Sidebar currentModule={currentModule} setCurrentModule={setCurrentModule} openLogin={() => setIsLoginModalOpen(true)} />
-      <main className="flex-1 overflow-y-auto">
-        <div className="max-w-7xl mx-auto py-8 px-8 xl:px-12">
-          {renderModule()}
+      <Sidebar 
+        currentModule={currentModule} 
+        setCurrentModule={setCurrentModule} 
+        openLogin={() => setIsLoginModalOpen(true)} 
+        isOpen={isSidebarOpen}
+        setIsOpen={setIsSidebarOpen}
+      />
+      
+      <main className="flex-1 flex flex-col h-screen overflow-hidden">
+        {/* Mobile Header */}
+        <div className="md:hidden bg-[#1B1B1B] text-white p-4 flex items-center justify-between shadow-md z-10 border-b border-[#FF6D2A]/20">
+          <h1 className="text-xl font-bold tracking-[0.15em] ml-2">
+            SIMART<span className="text-[#FF6D2A] font-light">KETING</span>
+          </h1>
+          <button 
+            onClick={() => setIsSidebarOpen(true)} 
+            className="p-2 bg-white/10 rounded-lg text-[#FF6D2A] hover:bg-white/20 transition-colors"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
+
+        <div className="flex-1 overflow-y-auto">
+          <div className="max-w-7xl mx-auto py-6 px-4 md:py-8 md:px-8 xl:px-12 w-full">
+            {renderModule()}
+          </div>
         </div>
       </main>
 

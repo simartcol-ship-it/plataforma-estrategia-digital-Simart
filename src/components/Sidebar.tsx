@@ -9,9 +9,11 @@ interface SidebarProps {
   currentModule: Module;
   setCurrentModule: (m: Module) => void;
   openLogin: () => void;
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ currentModule, setCurrentModule, openLogin }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ currentModule, setCurrentModule, openLogin, isOpen, setIsOpen }) => {
   const { user, logout } = useAuth();
 
   const navItems = [
@@ -26,8 +28,18 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentModule, setCurrentModul
   ];
 
   return (
-    <div className="w-72 bg-[#1B1B1B] text-white min-h-screen flex flex-col shadow-2xl z-20">
-      <div className="p-8 pb-6 flex flex-col items-center border-b border-white/5 relative overflow-hidden">
+    <>
+      {/* Mobile Overlay */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/60 z-40 md:hidden backdrop-blur-sm transition-opacity"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
+      {/* Sidebar Container */}
+      <div className={`fixed inset-y-0 left-0 z-50 w-72 bg-[#1B1B1B] text-white min-h-screen flex flex-col shadow-2xl transition-transform duration-300 ease-in-out md:relative md:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className="p-8 pb-6 flex flex-col items-center border-b border-white/5 relative overflow-hidden">
         {/* Animated Tech Logo */}
         
         <h1 className="text-xl font-bold tracking-[0.15em] text-white">
@@ -45,7 +57,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentModule, setCurrentModul
         {navItems.map((item) => (
           <button
             key={item.id}
-            onClick={() => setCurrentModule(item.id as Module)}
+            onClick={() => {
+              setCurrentModule(item.id as Module);
+              setIsOpen(false);
+            }}
             className={`w-full flex items-center space-x-3 px-4 py-3.5 rounded-xl transition-all duration-300 relative group overflow-hidden ${
               currentModule === item.id ? 'bg-[#FF6D2A]/10 text-white shadow-sm border border-[#FF6D2A]/20' : 'text-[#A5A5A5] hover:text-white hover:bg-white/5'
             }`}
@@ -98,5 +113,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentModule, setCurrentModul
          </div>
       </div>
     </div>
+    </>
   );
 };
