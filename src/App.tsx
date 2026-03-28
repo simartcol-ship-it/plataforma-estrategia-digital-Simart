@@ -74,7 +74,7 @@ const DashboardSummary = ({ openLogin }: { openLogin: () => void }) => {
              El estratega eres <strong className="text-[#FF6D2A] font-semibold">tú</strong>, la potencia es la <strong className="text-[#FF6D2A] font-semibold">IA</strong>.
            </p>
            <p className="text-[#A5A5A5] mt-5 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed mb-8">
-             No le dejes el futuro de tu negocio a un algoritmo. Domina el marketing estratégico con el poder de Gemini y recupera el control de tu marca.
+             No le dejes el futuro de tu negocio a un algoritmo. Domina el marketing estratégico con el poder de la IA entrenada por expertos en marketing, y toma el control de tu estrategia.
            </p>
            
            {!user ? (
