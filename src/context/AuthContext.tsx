@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { 
   User,
   onAuthStateChanged,
-  signInWithRedirect,
+  signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut
@@ -12,7 +12,7 @@ import { auth, googleProvider } from '../services/firebase';
 interface AuthContextType {
   user: User | null;
   loading: boolean;
-  loginWithGoogle: () => Promise<void>;
+  loginWithGoogle: () => Promise<any>;
   loginWithEmail: (e: string, p: string) => Promise<void>;
   registerWithEmail: (e: string, p: string) => Promise<void>;
   logout: () => Promise<void>;
@@ -33,7 +33,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const loginWithGoogle = async () => {
-    await signInWithRedirect(auth, googleProvider);
+    return signInWithPopup(auth, googleProvider);
   };
 
   const loginWithEmail = async (email: string, pass: string) => {

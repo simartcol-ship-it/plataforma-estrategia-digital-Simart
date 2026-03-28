@@ -36,17 +36,18 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
     }
   };
 
-  const handleGoogleLogin = async () => {
+  const handleGoogleLogin = () => {
     setError('');
-    setIsLoading(true);
-    try {
-      await loginWithGoogle();
-      onClose();
-    } catch (err: any) {
-      setError(err.message || 'Error al iniciar sesión con Google.');
-    } finally {
-      setIsLoading(false);
-    }
+    // Al NO ejecutar setIsLoading(true) o await de React antes, forzamos a Safari
+    // a ver que la ventana emergente viene estrictamente de un toque del usuario,
+    // garantizando su apertura instantánea (0.1s de retraso) sin bloqueos ITP.
+    loginWithGoogle()
+      .then(() => {
+        onClose();
+      })
+      .catch((err: any) => {
+        setError(err.message || 'Error al iniciar sesión con Google.');
+      });
   };
 
   return (
