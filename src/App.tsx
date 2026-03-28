@@ -133,7 +133,7 @@ const DashboardSummary = ({ openLogin }: { openLogin: () => void }) => {
              <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">De la teoría a la <span className="text-[#FF6D2A]">acción</span></h3>
              <div className="space-y-4">
                <p className="text-[#A5A5A5] text-lg md:text-xl leading-relaxed font-light">
-                 Diseñada para emprendedores, Pymes y estudiantes que buscan resultados reales, <strong className="text-white font-medium">Simartketing</strong> es la plataforma que transforma la complejidad digital en una hoja de ruta clara.
+                 Diseñada para emprendedores y Pymes que buscan resultados reales, <strong className="text-white font-medium">Simartketing</strong> es la plataforma que transforma la complejidad digital en una hoja de ruta clara.
                </p>
                <p className="text-[#A5A5A5] text-lg md:text-xl leading-relaxed font-light">
                  Una interfaz intuitiva que te guía para que cada campaña y cada mensaje acerquen tu proyecto a la meta definitiva.
