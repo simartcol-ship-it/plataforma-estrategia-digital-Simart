@@ -41,13 +41,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentModule, setCurrentModul
       <div className={`fixed inset-y-0 left-0 z-50 w-72 bg-[#1B1B1B] text-white min-h-screen flex flex-col shadow-2xl transition-transform duration-300 ease-in-out md:relative md:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="p-8 pb-6 flex flex-col items-center border-b border-white/5 relative overflow-hidden">
         {/* Animated Tech Logo */}
-        
-        <h1 className="text-xl font-bold tracking-[0.15em] text-white">
-          SIMART<span className="text-[#FF6D2A] font-light">KETING</span>
-        </h1>
-        <p className="text-[9px] text-[#A5A5A5] mt-1.5 uppercase tracking-[0.3em] font-medium opacity-80">
-          El estratega eres tú
-        </p>
+        <img src="/logo.png" alt="Simartketing Logo" className="h-10 w-auto object-contain mx-auto" />
+        <p className="text-[10px] text-[#A5A5A5] mt-2 tracking-widest uppercase text-center">El estratega eres tú</p>
 
         {/* Ambient glow */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF6D2A] opacity-[0.03] blur-2xl rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>

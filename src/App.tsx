@@ -61,9 +61,7 @@ const DashboardSummary = ({ openLogin }: { openLogin: () => void }) => {
         </div>
         
         <motion.div variants={itemVariants} className="relative z-10 flex flex-col items-center">
-           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight">
-             SIMART<span className="text-[#A5A5A5] font-light">KETING</span>
-           </h2>
+           <img src="/logo.png" alt="Simartketing Logo" className="h-16 md:h-20 w-auto object-contain mx-auto mb-6" />
            <motion.div 
              initial={{ width: 0 }} 
              animate={{ width: "60px" }} 
@@ -192,9 +190,7 @@ const MainLayout = () => {
       <main className="flex-1 flex flex-col h-screen overflow-hidden">
         {/* Mobile Header */}
         <div className="md:hidden bg-[#1B1B1B] text-white p-4 flex items-center justify-between shadow-md z-10 border-b border-[#FF6D2A]/20">
-          <h1 className="text-xl font-bold tracking-[0.15em] ml-2">
-            SIMART<span className="text-[#FF6D2A] font-light">KETING</span>
-          </h1>
+          <img src="/logo.png" alt="Simartketing Logo" className="h-8 w-auto object-contain ml-2" />
           <button 
             onClick={() => setIsSidebarOpen(true)} 
             className="p-2 bg-white/10 rounded-lg text-[#FF6D2A] hover:bg-white/20 transition-colors"

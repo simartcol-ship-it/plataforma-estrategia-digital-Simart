@@ -72,9 +72,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                   <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#FF6D2A] rounded-full blur-3xl opacity-20"></div>
                   <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-[#A5A5A5] rounded-full blur-3xl opacity-20"></div>
                 </div>
-                <h2 className="relative z-10 text-2xl font-bold tracking-widest text-white">
-                  SIMART<span className="text-[#FF6D2A] font-light">KETING</span>
-                </h2>
+                <img src="/logo.png" alt="Simartketing Logo" className="relative z-10 h-10 w-auto object-contain" />
                 <button
                   onClick={onClose}
                   className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-20 bg-white/5 p-1 rounded-full"
